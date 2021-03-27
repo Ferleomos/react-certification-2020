@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
-//import { Link, useHistory } from 'react-router-dom';
-//import { useHistory } from 'react-router-dom';
+// import { Link, useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import CardContainer from '../../components/Container';
 
-//import { useAuth } from '../../providers/Auth';
+// import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
 
 const GridContainer = styled.div`
@@ -45,7 +45,7 @@ const ContainerBody = styled.div`
 `;
 
 function HomePage() {
-  //const history = useHistory();
+  // const history = useHistory();
   const sectionRef = useRef(null);
   // const { authenticated, logout } = useAuth();
 
@@ -62,7 +62,7 @@ function HomePage() {
           <h2>Welcome to the Challenge!</h2>
         </ContainerHeader>
         <ContainerBody>
-          <CardContainer></CardContainer>
+          <CardContainer />
         </ContainerBody>
       </GridContainer>
       

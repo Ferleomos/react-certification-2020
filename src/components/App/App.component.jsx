@@ -1,4 +1,4 @@
-//import React, { useLayoutEffect } from 'react';
+// import React, { useLayoutEffect } from 'react';
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -10,8 +10,8 @@ import SecretPage from '../../pages/Secret';
 import Private from '../Private';
 // import Fortune from '../Fortune';
 import Layout from '../Layout';
-//import { random } from '../../utils/fns';
-import HeaderCotnainer from '../Header'
+// import { random } from '../../utils/fns';
+import HeaderContainer from '../Header'
 
 function App() {
   // useLayoutEffect(() => {
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <HeaderCotnainer></HeaderCotnainer>
+      <HeaderContainer />
       <AuthProvider>
         <Layout>
           <Switch>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mockYoutubeData } from '../../mock/youtubeData.js';
+import { mockYoutubeData } from '../../mock/youtubeData';
 import CardDetails from './CardDetails.component';
 
 const CardContainer = styled.div`
@@ -23,8 +23,7 @@ function VideoContainer(){
                 id={item.id.channelId}
                 title={item.snippet.title}
                 description={item.snippet.description}
-                imgHeader={item.snippet.thumbnails.medium.url}>
-                </CardDetails>
+                imgHeader={item.snippet.thumbnails.medium.url} />
             ))}
         </CardContainer>
     );

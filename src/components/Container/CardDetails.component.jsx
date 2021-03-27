@@ -49,7 +49,7 @@ const DetailsDescription = styled.p`
 function CardDetails(props){
     return(
         <CardContainer>
-            <CardHeader imgUrl={props.imgHeader}></CardHeader>
+            <CardHeader imgUrl={props.imgHeader} />
             <DetailsContainer>
                 <DetailsTitle>{props.title}</DetailsTitle>
                 <DetailsDescription>{props.description}</DetailsDescription>
