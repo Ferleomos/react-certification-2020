@@ -10,10 +10,6 @@ const Icon = styled.svg`
 const Button = styled.button`
     background-color: transparent;
     color: transparent;
-    /* border: 2px solid yellow; */
-    /* position: absolute; */
-    /* left: 25px;
-    top:18px; */
     border: none;
     display: inline-flex;
     position: relative;

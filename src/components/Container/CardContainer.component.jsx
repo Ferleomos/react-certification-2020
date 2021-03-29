@@ -13,7 +13,6 @@ const CardContainer = styled.div`
 `;
 
 function VideoContainer(){
-    // console.log(mockYoutubeData);
 
     return(
         <CardContainer>

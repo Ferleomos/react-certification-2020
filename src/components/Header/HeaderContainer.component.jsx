@@ -7,9 +7,6 @@ import SessionButton from './SessionButton.component';
 
 function HeaderContainer(){
 
-    // console.log('%c Create my components', 'color: cornflowerblue; font-weight:bold');
-    // console.table(['a','b','c']);
-
     return(
         <Header>
             <MenuIcon></MenuIcon> 

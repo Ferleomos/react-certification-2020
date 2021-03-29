@@ -2,9 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Icon = styled.svg`
-    /* flex: none; */
-    /* width: 40px;
-    height: 40px; */
     fill: white;
 `;
 
