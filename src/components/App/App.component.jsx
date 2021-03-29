@@ -8,12 +8,12 @@ import NotFound from '../../pages/NotFound';
 import SecretPage from '../../pages/Secret';
 import Private from '../Private';
 import Layout from '../Layout';
-import HeaderCotnainer from '../Header'
+import HeaderContainer from '../Header'
 
 function App() {
   return (
     <BrowserRouter>
-      <HeaderCotnainer></HeaderCotnainer>
+      <HeaderContainer></HeaderContainer>
       <AuthProvider>
         <Layout>
           <Switch>
