@@ -18,9 +18,11 @@ describe('validate header container works properly', () => {
 });
 
 describe('validate header works properly', () => {
-  test('render header is working', () => {
-    const hdr = renderer.create(<Header />).toJSON();
-        expect(hdr).toMatchSnapshot()
+
+    test('render header is working', () => {
+        render(<Header />);
+        const heading = screen.getByRole('banner');
+        expect(heading).toBeInTheDocument();
     });
 
     test('applies default styles', () => {
@@ -35,23 +37,24 @@ describe('validate menu button renders', () => {
 
     test('render button properly', () => {
         render(<MenuIcon />);
-        // screen.debug();
+
         const btnIcon = screen.getByRole('button');
-        // screen.debug(btnIcon);
         expect(btnIcon).toBeInTheDocument();
     });
 
     test('render menu is working', () => {
         const menuBtn = renderer.create(<MenuIcon />).toJSON();
-        expect(menuBtn).toMatchSnapshot();
+        expect(menuBtn).toHaveStyleRule('background-color', 'transparent');
     });
 });
 
 describe('validate session button works properly', () => {
 
     test('render session button is working', () => {
-        const snButton = renderer.create(<SessionButton />).toJSON();
-        expect(snButton).toMatchSnapshot();
+        render(<SessionButton />);
+
+        const snButton = screen.getByRole('button');
+        expect(snButton).toBeInTheDocument();
     });
 
     test('applies default styles', () => {
@@ -75,8 +78,10 @@ describe('validate search bar renders', () => {
 
 describe('validate theme selector works properly', () => {
     test('render theme selector button is working', () => {
-        const selTheme = renderer.create(<ThemeSelector />).toJSON();
-        expect(selTheme).toMatchSnapshot();
+        render(<ThemeSelector />);
+        
+        const selTheme = screen.getByLabelText('Dark Mode');
+        expect(selTheme).toBeInTheDocument();
     });
 
     test('applies default styles', () => {
@@ -84,30 +89,3 @@ describe('validate theme selector works properly', () => {
         expect(selTheme).toHaveStyleRule('display', 'inline-flex');
     });
 });
-
-
-// /// ASYNC EXAMPLES /////
-
-// const asyncCallback = (cb) => {
-//     setTimeout(() => {
-//         cb(true);
-//     }, 1000);
-// };
-
-// const asyncPromise = () => new Promise((resolve) => resolve(true));
-
-// test('async with callback', (done) => {
-//     asyncCallback(() => {
-//         expect(result).toBe(true);
-//         done();
-//     });
-// });
-
-// test('async with promises', () => {
-//     return asyncPromise().then((result) => expect(result).toBe(true));
-// });
-
-// test('async with async await', async () => {
-//     const result = await asyncPromise();
-//     expect(result).toBe(true);
-// });

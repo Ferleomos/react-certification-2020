@@ -7,8 +7,15 @@ import App from '../components/App/App.component';
 describe('validate app container works properly', () => {
     test('render app contains elements', () => {
         render(<App />);
+
         const appC = screen.getByRole('main');
-        // screen.debug(appC);
+        expect(appC).toBeInTheDocument();
+    });
+
+    test('verify app contains proper styles', () => {
+        render(<App />);
+
+        const appC = screen.getByRole('main');
         expect(appC).toHaveClass('container');
     });
 });
