@@ -1,0 +1,23 @@
+--------------------------------|----------|----------|----------|----------|-------------------|
+File                            |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+--------------------------------|----------|----------|----------|----------|-------------------|
+All files                       |    84.38 |        0 |    78.57 |    84.38 |                   |
+ App                            |      100 |      100 |      100 |      100 |                   |
+  App.component.jsx             |      100 |      100 |      100 |      100 |                   |
+ Container                      |      100 |      100 |      100 |      100 |                   |
+  CardContainer.component.jsx   |      100 |      100 |      100 |      100 |                   |
+  CardDetails.component.jsx     |      100 |      100 |      100 |      100 |                   |
+ Fortune                        |        0 |      100 |        0 |        0 |                   |
+  Fortune.component.jsx         |        0 |      100 |        0 |        0 |               7,9 |
+ Header                         |      100 |      100 |      100 |      100 |                   |
+  Header.component.jsx          |      100 |      100 |      100 |      100 |                   |
+  HeaderContainer.component.jsx |      100 |      100 |      100 |      100 |                   |
+  MenuButton.component.jsx      |      100 |      100 |      100 |      100 |                   |
+  SearchBar.component.jsx       |      100 |      100 |      100 |      100 |                   |
+  SessionButton.component.jsx   |      100 |      100 |      100 |      100 |                   |
+  ThemeSelector.component.jsx   |      100 |      100 |      100 |      100 |                   |
+ Layout                         |      100 |      100 |      100 |      100 |                   |
+  Layout.component.jsx          |      100 |      100 |      100 |      100 |                   |
+ Private                        |        0 |        0 |        0 |        0 |                   |
+  Private.component.jsx         |        0 |        0 |        0 |        0 |            7,9,10 |
+--------------------------------|----------|----------|----------|----------|-------------------|

@@ -13,7 +13,7 @@ import HeaderContainer from '../Header'
 function App() {
   return (
     <BrowserRouter>
-      <HeaderContainer></HeaderContainer>
+      <HeaderContainer />
       <AuthProvider>
         <Layout>
           <Switch>
