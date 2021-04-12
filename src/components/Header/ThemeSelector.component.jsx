@@ -32,7 +32,7 @@ function ThemeSelector(){
             <ThemeButton>
 
             </ThemeButton>
-            <ThemeLabel>Dark Mode</ThemeLabel>
+            <ThemeLabel aria-label="Dark Mode">Dark Mode</ThemeLabel>
         </ThemeContainer>
     );
 };
