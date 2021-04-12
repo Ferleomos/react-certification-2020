@@ -1,16 +1,17 @@
-import React, { useRef } from 'react';
-//import { Link, useHistory } from 'react-router-dom';
-//import { useHistory } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
-import CardContainer from '../../components/Container';
-
-//import { useAuth } from '../../providers/Auth';
+import VideoContainer from '../../components/Container/CardContainer.component';
+import HeaderContainer from "../../components/Header";
+import useVideoApi from "../../hooks/useVideoApi";
 import './Home.styles.css';
+import PanelViewContainer from '../../components/Container/PanelViewContainer.component'
 
 const GridContainer = styled.div`
-    display: flex;
+    display: ${props => props.videoView};
     flex-wrap: wrap;
     box-sizing: border-box;
+    position: inherit;
+    z-index: 1;
 `;
 
 const ContainerHeader = styled.div`
@@ -44,43 +45,46 @@ const ContainerBody = styled.div`
     height: 100vh;
 `;
 
-function HomePage() {
-  //const history = useHistory();
-  const sectionRef = useRef(null);
-  // const { authenticated, logout } = useAuth();
 
-  // function deAuthenticate(event) {
-  //   event.preventDefault();
-  //   logout();
-  //   history.push('/');
-  // }
+function HomePage() {
+  const sectionRef = useRef(null);
+  const [inputText, setText] = useState('penguin');
+  const [loading, getData, loadedData] = useVideoApi();
+  const [video, setVideo] = useState(null);
+
+  useEffect(() => {
+      console.log('call from Home videos');
+      getData(inputText, true);
+      setVideo(null);
+  }, [inputText]);
 
   return (
+    <>
+    <HeaderContainer
+      onInputChange={setText}
+      inputText={inputText}
+      disabled={loading}
+    ></HeaderContainer>
     <section className="homepage" ref={sectionRef}>
-      <GridContainer>
+      <GridContainer videoView={video ? 'none' : 'block'}>
         <ContainerHeader>
-          <h2>Welcome to the Challenge!</h2>
+          {!loadedData 
+          ? <></>
+          : <h2>Welcome to the Challenge!</h2>} 
         </ContainerHeader>
         <ContainerBody>
-          <CardContainer></CardContainer>
+          <VideoContainer
+            videoData={loadedData}
+            loading={loading}
+            setVideo={setVideo}
+          ></VideoContainer>
         </ContainerBody>
       </GridContainer>
-      
-      {/* {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )} */}
+      <PanelViewContainer video={video} setVideo={setVideo}>
+
+      </PanelViewContainer>
     </section>
+    </>
   );
 }
 

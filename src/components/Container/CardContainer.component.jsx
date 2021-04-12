@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mockYoutubeData } from '../../mock/youtubeData.js';
 import CardDetails from './CardDetails.component';
 
 const CardContainer = styled.div`
@@ -12,19 +11,19 @@ const CardContainer = styled.div`
     justify-content: center;
 `;
 
-function VideoContainer(){
-
+function VideoContainer({loading, videoData, setVideo}){
     return(
         <CardContainer>
-            {mockYoutubeData.map((item, key) => (
-                <CardDetails 
-                key={key}
-                id={item.id.channelId}
-                title={item.snippet.title}
-                description={item.snippet.description}
-                imgHeader={item.snippet.thumbnails.medium.url}>
-                </CardDetails>
-            ))}
+            {!loading &&
+                videoData &&
+                videoData.map((item, key) => (
+                    <CardDetails 
+                        key={key}
+                        {...item}
+                        onClick={() => setVideo(item)}>
+                    </CardDetails>
+                ))
+            }
         </CardContainer>
     );
 };

@@ -8,24 +8,22 @@ import NotFound from '../../pages/NotFound';
 import SecretPage from '../../pages/Secret';
 import Private from '../Private';
 import Layout from '../Layout';
-import HeaderContainer from '../Header'
 
 function App() {
   return (
     <BrowserRouter>
-      <HeaderContainer></HeaderContainer>
       <AuthProvider>
         <Layout>
           <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
             <Route exact path="/login">
               <LoginPage />
             </Route>
             <Private exact path="/secret">
               <SecretPage />
             </Private>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
             <Route path="*">
               <NotFound />
             </Route>
