@@ -2,6 +2,10 @@ import { VIDEO_MAIN_URL } from '../../utils/constants';
  
 const getVideoData = async (queryS) => {
     try{
+        if(!queryS){
+            return null;
+        }
+
         const params = {
             q: queryS,
             key: process.env.REACT_APP_G_API_KEY,
@@ -9,25 +13,26 @@ const getVideoData = async (queryS) => {
             type: 'video',
             maxResults: 10
         }
-        let videoUrl = new URL(VIDEO_MAIN_URL);
+        const videoUrl = new URL(VIDEO_MAIN_URL);
         videoUrl.search = new URLSearchParams(params).toString();
-        //console.log(videoUrl);
-        const response = await fetch('https://606b8b12f8678400172e65f9.mockapi.io/videoApi');
-        //const response = await fetch(videoUrl);
-        const json = await response.json();
+        //const response = await fetch('https://606b8b12f8678400172e65f9.mockapi.io/videoApi');
+        const response = await fetch(videoUrl);
 
-        if (!response.ok) {
-            throw Error(response.statusText);
-        }
+        const json = await response?.json() ?? null;
         return json;
     }
     catch(error){
         console.log(error);
+        return null;
     }
 };
 
 const getRelatedVideoData = async (relatedVideoId) => {
     try {
+        if(!relatedVideoId){
+            return null;
+        }
+
         const params = {
             relatedToVideoId: relatedVideoId,
             key: process.env.REACT_APP_G_API_KEY,
@@ -35,19 +40,17 @@ const getRelatedVideoData = async (relatedVideoId) => {
             type: 'video',
             maxResults: 10
         }
-        let videoUrl = new URL(VIDEO_MAIN_URL);
+        const videoUrl = new URL(VIDEO_MAIN_URL);
         videoUrl.search = new URLSearchParams(params).toString();
-        //console.log(videoUrl);
-        const response = await fetch('https://606b8b12f8678400172e65f9.mockapi.io/relatedVideoApi');
-        //const response = await fetch(videoUrl);
-        const json = await response.json();
-
-        if (!response.ok) {
-            throw Error(response.statusText);
-        }
+        //const response = await fetch('https://606b8b12f8678400172e65f9.mockapi.io/relatedVideoApi');
+        const response = await fetch(videoUrl);
+        
+        const json = await response?.json() ?? null;
         return json;
-    } catch (error) {
+    } 
+    catch (error) {
         console.log(error);
+        return null;
     }
 };
 

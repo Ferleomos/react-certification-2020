@@ -16,14 +16,14 @@ const useVidepApi = () => {
                     searchResults = await videoApi.getRelatedVideoData(filterData);
                 }
 
-                // if(searchResults && searchResults['items']){
-                //     setLoadedData(searchResults['items']);
-                //     setLoading(false);
-                // }
-                if(searchResults){
-                    setLoadedData(searchResults);
+                if(searchResults && searchResults.items){
+                    setLoadedData(searchResults.items);
                     setLoading(false);
                 }
+                // if(searchResults){
+                //     setLoadedData(searchResults);
+                //     setLoading(false);
+                // }
             }
             else{
                 setLoading(false);
