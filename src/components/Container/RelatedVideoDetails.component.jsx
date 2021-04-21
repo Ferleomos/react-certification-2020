@@ -10,7 +10,7 @@ const CardContainer = styled.div`
     outline: none;
     cursor: pointer;
     transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    background-color: #fff;
+    background-color: ${(props) => props.theme.hForeground};
     border-radius: 2px;
     box-shadow: 0px 5px 10px #84909b;
 
@@ -46,6 +46,7 @@ const CardTitle = styled.h4`
     width: 60%;
     float: right;
     padding: 0px 0px 0px 15px;
+    color: ${(props) => props.theme.hBackground};
 `;
 
 function RelatedVideoContainer({ snippet, ...props }){

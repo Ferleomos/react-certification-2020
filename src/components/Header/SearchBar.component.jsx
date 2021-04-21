@@ -23,10 +23,12 @@ const SearchInput = styled.input`
     min-height: 35px;
     max-height: 35px;
     border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.60);
+    background-color: ${(props) => props.theme.hForeground};
     border: none;
     padding-left: 20px;
     outline: none;
+    color: ${(props) => props.theme.hBackground};
+    font-weight: bold;
 `;
 
 const SearchBar = ({ initSearchQuery, onChange, disabled }) => {

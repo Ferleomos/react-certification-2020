@@ -12,6 +12,7 @@ const GridContainer = styled.div`
     box-sizing: border-box;
     position: inherit;
     z-index: 1;
+    height: 100%
 `;
 
 const ContainerHeader = styled.div`
@@ -19,7 +20,8 @@ const ContainerHeader = styled.div`
     max-width: 100%;
     flex-basis: 100%;
     border: none;
-  
+    color: ${(props) => props.theme.hBackground};
+
     h2{
       font-size: 3.5rem;
       font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -42,9 +44,19 @@ const ContainerBody = styled.div`
     flex-flow: row wrap;
     -webkit-box-pack: center;
     justify-content: center;
-    height: 100vh;
+    /* height: 100%; */
 `;
 
+const SectionBody = styled.section`
+  text-align: center;
+  /* height: 100%; */
+  background-color: ${(props) => props.theme.hForeground};
+
+  &h1{
+    font-size: 3rem;
+    letter-spacing: -2px;
+  }
+`;
 
 function HomePage() {
   const sectionRef = useRef(null);
@@ -65,7 +77,7 @@ function HomePage() {
       inputText={inputText}
       disabled={loading}
     ></HeaderContainer>
-    <section className="homepage" ref={sectionRef}>
+    <SectionBody ref={sectionRef}>
       <GridContainer videoView={video ? 'none' : 'block'}>
         <ContainerHeader>
           {!loadedData 
@@ -83,7 +95,7 @@ function HomePage() {
       <PanelViewContainer video={video} setVideo={setVideo}>
 
       </PanelViewContainer>
-    </section>
+    </SectionBody>
     </>
   );
 }

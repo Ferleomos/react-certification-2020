@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useGlobalContext } from "../../providers/StateManagement/StateGlobal.provider";
 
 const ThemeContainer = styled.div`
     border: none;
@@ -17,8 +18,6 @@ const ThemeContainer = styled.div`
 `;
 
 const ThemeLabel = styled.label`
-    color: Black;
-    font-weight: bold;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 `;
 
@@ -27,11 +26,18 @@ const ThemeButton = styled.input.attrs({type: 'checkbox'})`
 `;
 
 function ThemeSelector(){
+     const { dispatch, state } = useGlobalContext();
+     const { theme } = state;
+    
     return(
         <ThemeContainer>
-            <ThemeButton>
-
-            </ThemeButton>
+            <ThemeButton
+            onClick={() => {
+                dispatch({
+                    type: 'setGlobalTheme',
+                    value: theme === 'light' ? 'dark' : 'light',
+                })
+            }} />
             <ThemeLabel aria-label="Dark Mode">Dark Mode</ThemeLabel>
         </ThemeContainer>
     );

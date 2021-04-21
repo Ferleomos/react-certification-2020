@@ -12,6 +12,11 @@ const CardContainer = styled.div`
 `;
 
 function VideoContainer({loading, videoData, setVideo}){
+    const handleSetVideo = (item) => {
+        window.scrollTo(0, 0);        
+        setVideo(item);
+    };
+
     return(
         <CardContainer>
             {!loading &&
@@ -20,7 +25,7 @@ function VideoContainer({loading, videoData, setVideo}){
                     <CardDetails 
                         key={key}
                         {...item}
-                        onClick={() => setVideo(item)}>
+                        onClick={() => handleSetVideo(item)}>
                     </CardDetails>
                 ))
             }

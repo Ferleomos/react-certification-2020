@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 const Header = styled.header`
-    background-color: #60a4e4;
+    background-color: ${(props) => props.theme.hBackground};
+    color: ${(props) => props.theme.hForeground};
+    border-bottom: ${(props) => props.theme.headerBorder};
     display: flex;
     flex-direction: row;
     border: none;

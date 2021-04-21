@@ -7,7 +7,7 @@ const PanelContainer = styled.div`
   position: inherit;
   width: 75%;
   height: 100%;
-  background-color: rgba(255, 255, 255);
+  background-color: ${(props) => props.theme.hForeground};
   z-index: 3;
   cursor: default;
   display: flex;
@@ -21,12 +21,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: ${(props) => props.theme.hForeground};
   cursor: default;
   overflow-y: auto;
   align-items: flex-end;
   width: 100%;
-  height: 50%;
+  min-height: 60vh;
 `;
 
 const CloseButton = styled.button`
@@ -67,11 +67,12 @@ const VideoTitle = styled.div`
     align-items: flex-start;
     width: 100%;
     align-content: flex-start;
+    color: ${(props) => props.theme.hBackground};
 `;
 
 const VideoDescription = styled.p`
     text-align: justify;
-    color: rgba(0, 0, 0, 0.54);
+    color: ${(props) => props.theme.videoDes};
     font-size: 1rem;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 400;
@@ -84,7 +85,7 @@ const VideoDescription = styled.p`
 `;
 
 const Related = styled.aside`
-  background-color: rgba(255, 255, 255);;
+  background-color: ${(props) => props.theme.hForeground};
   width: 25%;
   height: 100%;
   float: right;
@@ -102,7 +103,6 @@ function PanelViewContainer ({video, setVideo}) {
   let mainVideoId = video?.id?.videoId ?? null;
 
   useEffect(() => {
-    //console.log('call from Related');
     getData(mainVideoId, false);
   }, [mainVideoId]);
   
@@ -112,6 +112,12 @@ function PanelViewContainer ({video, setVideo}) {
 
   const closePanel = () =>{
     setVideo(null);
+    window.scrollTo(0,0);
+  };
+
+  const handleRelated = (item) => {
+    window.scrollTo(0, 0);        
+    setVideo(item);
   };
 
   return(
@@ -137,7 +143,7 @@ function PanelViewContainer ({video, setVideo}) {
             <RelatedVideoContainer 
               key={key}
               {...item}
-              onClick={() => setVideo(item)}>
+              onClick={() => handleRelated(item)}>
             </RelatedVideoContainer>
         ))
       }
