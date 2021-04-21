@@ -15,8 +15,7 @@ const getVideoData = async (queryS) => {
         }
         const videoUrl = new URL(VIDEO_MAIN_URL);
         videoUrl.search = new URLSearchParams(params).toString();
-        const response = await fetch('https://606b8b12f8678400172e65f9.mockapi.io/videoApi');
-        //const response = await fetch(videoUrl);
+        const response = await fetch(videoUrl);
 
         const json = await response?.json() ?? null;
         return json;
@@ -42,8 +41,7 @@ const getRelatedVideoData = async (relatedVideoId) => {
         }
         const videoUrl = new URL(VIDEO_MAIN_URL);
         videoUrl.search = new URLSearchParams(params).toString();
-        const response = await fetch('https://606b8b12f8678400172e65f9.mockapi.io/relatedVideoApi');
-        //const response = await fetch(videoUrl);
+        const response = await fetch(videoUrl);
         
         const json = await response?.json() ?? null;
         return json;

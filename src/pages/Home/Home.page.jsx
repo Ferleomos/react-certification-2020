@@ -65,7 +65,6 @@ function HomePage() {
   const [video, setVideo] = useState(null);
 
   useEffect(() => {
-      //console.log('call from Home videos');
       getData(inputText, true);
       setVideo(null);
   }, [inputText]);
