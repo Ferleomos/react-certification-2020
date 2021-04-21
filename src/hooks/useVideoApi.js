@@ -20,10 +20,6 @@ const useVidepApi = () => {
                     setLoadedData(searchResults.items);
                     setLoading(false);
                 }
-                // if(searchResults){
-                //     setLoadedData(searchResults);
-                //     setLoading(false);
-                // }
             }
             else{
                 setLoading(false);

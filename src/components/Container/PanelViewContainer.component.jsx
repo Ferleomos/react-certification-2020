@@ -102,7 +102,6 @@ function PanelViewContainer ({video, setVideo}) {
   let mainVideoId = video?.id?.videoId ?? null;
 
   useEffect(() => {
-    //console.log('call from Related');
     getData(mainVideoId, false);
   }, [mainVideoId]);
   
