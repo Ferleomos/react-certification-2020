@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const SearchContainer = styled.div`
@@ -25,12 +25,38 @@ const SearchInput = styled.input`
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.60);
     border: none;
+    padding-left: 20px;
+    outline: none;
 `;
 
-function SearchBar(){
+const SearchBar = ({ initSearchQuery, onChange, disabled }) => {
+    const [inputValue, setInputValue] = useState(initSearchQuery);
+
+    const changeValue = (e) => {
+        e.preventDefault();
+        let value = e.target.value;
+        setInputValue(value);
+    };
+
+    const actionEnter = (event) => {
+        if (event.key === "Enter") {
+            if(inputValue){
+                onChange(inputValue);
+            }
+        }
+    }; 
+
     return(
         <SearchContainer>
-            <SearchInput placeholder='Search...'></SearchInput>
+            <SearchInput 
+            type="text"
+            placeholder='Search...'
+            onChange={changeValue}
+            value={inputValue}
+            onKeyDown={actionEnter}
+            disabled={disabled}
+            >
+            </SearchInput>
         </SearchContainer>
     );
 };

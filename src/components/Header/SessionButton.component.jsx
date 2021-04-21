@@ -18,7 +18,8 @@ const UserButton = styled.button`
     vertical-align: center;
     align-items: center;
     align-content: center;
-
+    outline: none;
+    
     @media(max-width: 640px) {
         display: none;
     }

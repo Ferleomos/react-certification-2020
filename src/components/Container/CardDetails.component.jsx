@@ -9,8 +9,21 @@ const CardContainer = styled.div`
     transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     background-color: #fff;
     border-radius: 4px;
-    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    box-shadow: 0px 5px 10px #84909b;
     overflow: hidden;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0px;
+
+    &:hover{
+        box-shadow: 0px 15px 25px -5px #84909b;
+        transform: scale(1.03);
+    }
+    &:active{
+        box-shadow: 0px 4px 8px #5f6461;
+        transform: scale(0.98);
+    }
 `;
 
 const CardHeader = styled.div`
@@ -30,7 +43,7 @@ const DetailsContainer = styled.div`
 
 const DetailsTitle = styled.h2`
     text-align: justify;
-    font-size: 1.25rem;
+    font-size: 1.10rem;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 500;
     margin: 0px;
@@ -40,19 +53,19 @@ const DetailsTitle = styled.h2`
 const DetailsDescription = styled.p`
     text-align: justify;
     color: rgba(0, 0, 0, 0.54);
-    font-size: 0.875rem;
+    font-size: 0.82rem;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 400;
     line-height: 1.43;
 `;
 
-function CardDetails(props){
+function CardDetails({ snippet: { thumbnails, title, description }, ...props }){
     return(
-        <CardContainer>
-            <CardHeader imgUrl={props.imgHeader} />
+        <CardContainer as="button" {...props}>
+            <CardHeader imgUrl={thumbnails?.medium?.url}></CardHeader>
             <DetailsContainer>
-                <DetailsTitle>{props.title}</DetailsTitle>
-                <DetailsDescription>{props.description}</DetailsDescription>
+                <DetailsTitle>{title}</DetailsTitle>
+                <DetailsDescription>{description}</DetailsDescription>
             </DetailsContainer>
         </CardContainer>
     );

@@ -15,6 +15,7 @@ const Button = styled.button`
     position: relative;
     align-items: center;
     margin: 0px 25px 0px 15px;
+    outline: none;
 
     @media(max-width: 640px) {
         margin: 0px 0px 0px 10px;

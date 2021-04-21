@@ -1,23 +1,25 @@
---------------------------------|----------|----------|----------|----------|-------------------|
-File                            |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
---------------------------------|----------|----------|----------|----------|-------------------|
-All files                       |    84.38 |        0 |    78.57 |    84.38 |                   |
- App                            |      100 |      100 |      100 |      100 |                   |
-  App.component.jsx             |      100 |      100 |      100 |      100 |                   |
- Container                      |      100 |      100 |      100 |      100 |                   |
-  CardContainer.component.jsx   |      100 |      100 |      100 |      100 |                   |
-  CardDetails.component.jsx     |      100 |      100 |      100 |      100 |                   |
- Fortune                        |        0 |      100 |        0 |        0 |                   |
-  Fortune.component.jsx         |        0 |      100 |        0 |        0 |               7,9 |
- Header                         |      100 |      100 |      100 |      100 |                   |
-  Header.component.jsx          |      100 |      100 |      100 |      100 |                   |
-  HeaderContainer.component.jsx |      100 |      100 |      100 |      100 |                   |
-  MenuButton.component.jsx      |      100 |      100 |      100 |      100 |                   |
-  SearchBar.component.jsx       |      100 |      100 |      100 |      100 |                   |
-  SessionButton.component.jsx   |      100 |      100 |      100 |      100 |                   |
-  ThemeSelector.component.jsx   |      100 |      100 |      100 |      100 |                   |
- Layout                         |      100 |      100 |      100 |      100 |                   |
-  Layout.component.jsx          |      100 |      100 |      100 |      100 |                   |
- Private                        |        0 |        0 |        0 |        0 |                   |
-  Private.component.jsx         |        0 |        0 |        0 |        0 |            7,9,10 |
---------------------------------|----------|----------|----------|----------|-------------------|
+------------------------------------|----------|----------|----------|----------|-------------------|
+File                                |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+------------------------------------|----------|----------|----------|----------|-------------------|
+All files                           |    64.71 |    27.78 |    41.67 |    64.71 |                   |
+ App                                |      100 |      100 |      100 |      100 |                   |
+  App.component.jsx                 |      100 |      100 |      100 |      100 |                   |
+ Container                          |    63.89 |    41.67 |       25 |    63.89 |                   |
+  CardContainer.component.jsx       |       50 |    66.67 |    33.33 |       50 |             20,23 |
+  CardDetails.component.jsx         |    71.43 |      100 |        0 |    71.43 |             31,63 |
+  PanelViewContainer.component.jsx  |    72.22 |    42.86 |       40 |    72.22 |... 14,117,137,140 |
+  RelatedVideoDetails.component.jsx |    42.86 |        0 |        0 |    42.86 |       29,53,54,57 |
+ Fortune                            |        0 |      100 |        0 |        0 |                   |
+  Fortune.component.jsx             |        0 |      100 |        0 |        0 |               7,9 |
+ Header                             |       76 |        0 |    71.43 |       76 |                   |
+  Header.component.jsx              |      100 |      100 |      100 |      100 |                   |
+  HeaderContainer.component.jsx     |      100 |      100 |      100 |      100 |                   |
+  MenuButton.component.jsx          |      100 |      100 |      100 |      100 |                   |
+  SearchBar.component.jsx           |    53.85 |        0 |    33.33 |    53.85 | 36,37,38,42,43,44 |
+  SessionButton.component.jsx       |      100 |      100 |      100 |      100 |                   |
+  ThemeSelector.component.jsx       |      100 |      100 |      100 |      100 |                   |
+ Layout                             |      100 |      100 |      100 |      100 |                   |
+  Layout.component.jsx              |      100 |      100 |      100 |      100 |                   |
+ Private                            |        0 |        0 |        0 |        0 |                   |
+  Private.component.jsx             |        0 |        0 |        0 |        0 |            7,9,10 |
+------------------------------------|----------|----------|----------|----------|-------------------|

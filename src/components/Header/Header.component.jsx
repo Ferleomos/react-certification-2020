@@ -8,8 +8,9 @@ const Header = styled.header`
     z-index: 1100;
     width: 100%;
     min-height: 64px;
-    /* justify-content: space-between; */
     align-items: center;
+    position: sticky;
+    top: 0;
 `;
 
 export default Header;
