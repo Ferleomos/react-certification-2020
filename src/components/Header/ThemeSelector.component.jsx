@@ -26,8 +26,8 @@ const ThemeButton = styled.input.attrs({type: 'checkbox'})`
 `;
 
 function ThemeSelector(){
-     const { dispatch, state } = useGlobalContext();
-     const { theme } = state;
+    const { dispatch, state } = useGlobalContext();
+    const { theme } = state;
     
     return(
         <ThemeContainer>

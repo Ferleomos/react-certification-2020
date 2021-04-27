@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CardContainer = styled.div`
-    padding: 10px;
+    padding: 0px 10px 0px 0px;
     min-height: 120px;
     border: none;
     width: 100%;
@@ -16,11 +16,11 @@ const CardContainer = styled.div`
 
     &:hover{
         box-shadow: 0px 15px 25px -5px #84909b;
-        transform: scale(1.03);
+        transform: scale(1.02);
     }
     &:active{
         box-shadow: 0px 4px 8px #5f6461;
-        transform: scale(0.98);
+        transform: scale(0.99);
     } 
 `;
 
@@ -31,7 +31,7 @@ const CardHeader = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 100%;
+    min-height: 100px;
     width: 40%;
     float: left;
 `;
@@ -54,10 +54,10 @@ function RelatedVideoContainer({ snippet, ...props }){
     if(!snippet){
         return null;
     }
-
+    console.log(snippet);
     return(
         <CardContainer as="button" {...props}>
-            <CardHeader imgUrl={snippet?.thumbnails?.default?.url}></CardHeader>
+            <CardHeader imgUrl={snippet?.thumbnails?.medium?.url} />
             <CardTitle>{snippet?.title}</CardTitle>
         </CardContainer>
     );

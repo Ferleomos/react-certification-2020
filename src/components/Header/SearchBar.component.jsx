@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useGlobalContext } from "../../providers/StateManagement/StateGlobal.provider";
 
 const SearchContainer = styled.div`
     border: none;
@@ -31,8 +32,9 @@ const SearchInput = styled.input`
     font-weight: bold;
 `;
 
-const SearchBar = ({ initSearchQuery, onChange, disabled }) => {
-    const [inputValue, setInputValue] = useState(initSearchQuery);
+const SearchBar = ({ disabled }) => {
+    const [inputValue, setInputValue] = useState('');
+    const { dispatch } = useGlobalContext();
 
     const changeValue = (e) => {
         e.preventDefault();
@@ -43,10 +45,13 @@ const SearchBar = ({ initSearchQuery, onChange, disabled }) => {
     const actionEnter = (event) => {
         if (event.key === "Enter") {
             if(inputValue){
-                onChange(inputValue);
+                dispatch({ 
+                    type: 'setQuerySearch', 
+                    value: inputValue
+                });
             }
         }
-    }; 
+    };
 
     return(
         <SearchContainer>
@@ -56,9 +61,7 @@ const SearchBar = ({ initSearchQuery, onChange, disabled }) => {
             onChange={changeValue}
             value={inputValue}
             onKeyDown={actionEnter}
-            disabled={disabled}
-            >
-            </SearchInput>
+            disabled={disabled} />
         </SearchContainer>
     );
 };

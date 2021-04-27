@@ -7,6 +7,8 @@ const useVidepApi = () => {
     
     const getData = async (filterData, mainData) => {
         try{
+            setLoading(true);
+
             let searchResults = null;
             if(filterData){
                 if(mainData){
@@ -16,8 +18,13 @@ const useVidepApi = () => {
                     searchResults = await videoApi.getRelatedVideoData(filterData);
                 }
 
-                if(searchResults && searchResults.items){
-                    setLoadedData(searchResults.items);
+                // if(searchResults && searchResults.items){
+                //     setLoadedData(searchResults.items);
+                //     setLoading(false);
+                // }
+                
+                if(searchResults){
+                    setLoadedData(searchResults);
                     setLoading(false);
                 }
             }

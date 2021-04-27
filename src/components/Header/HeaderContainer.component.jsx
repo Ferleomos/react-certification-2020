@@ -5,17 +5,13 @@ import SearchBar from './SearchBar.component';
 import ThemeSelector from './ThemeSelector.component';
 import SessionButton from './SessionButton.component';
 
-function HeaderContainer({onInputChange, inputText, disabled}){
+function HeaderContainer({disabled}){
     return(
         <Header>
-            <MenuIcon></MenuIcon> 
-            <SearchBar 
-              initSearchQuery={inputText} 
-              onChange={onInputChange}
-              disabled={disabled}
-            ></SearchBar>
-            <ThemeSelector></ThemeSelector>
-            <SessionButton></SessionButton>
+            <MenuIcon/>
+            <SearchBar disabled={disabled}/>
+            <ThemeSelector/>
+            <SessionButton/>
         </Header>
     );
 };

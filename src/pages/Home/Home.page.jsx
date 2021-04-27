@@ -5,6 +5,8 @@ import HeaderContainer from "../../components/Header";
 import useVideoApi from "../../hooks/useVideoApi";
 import './Home.styles.css';
 import PanelViewContainer from '../../components/Container/PanelViewContainer.component'
+import { useGlobalContext } from "../../providers/StateManagement/StateGlobal.provider";
+
 
 const GridContainer = styled.div`
     display: ${props => props.videoView};
@@ -12,7 +14,7 @@ const GridContainer = styled.div`
     box-sizing: border-box;
     position: inherit;
     z-index: 1;
-    height: 100%
+    height: 100%;
 `;
 
 const ContainerHeader = styled.div`
@@ -60,22 +62,20 @@ const SectionBody = styled.section`
 
 function HomePage() {
   const sectionRef = useRef(null);
-  const [inputText, setText] = useState('penguin');
   const [loading, getData, loadedData] = useVideoApi();
   const [video, setVideo] = useState(null);
 
-  useEffect(() => {
-      getData(inputText, true);
-      setVideo(null);
-  }, [inputText]);
+  const { state } = useGlobalContext();
+  const { query } = state;
 
+  useEffect(() => {
+      getData(query || 'caguamas', true);
+      setVideo(null);
+  }, [query]);
+  
   return (
     <>
-    <HeaderContainer
-      onInputChange={setText}
-      inputText={inputText}
-      disabled={loading}
-    ></HeaderContainer>
+    <HeaderContainer disabled={loading}/>
     <SectionBody ref={sectionRef}>
       <GridContainer videoView={video ? 'none' : 'block'}>
         <ContainerHeader>
@@ -87,13 +87,10 @@ function HomePage() {
           <VideoContainer
             videoData={loadedData}
             loading={loading}
-            setVideo={setVideo}
-          ></VideoContainer>
+            setVideo={setVideo}/>
         </ContainerBody>
       </GridContainer>
-      <PanelViewContainer video={video} setVideo={setVideo}>
-
-      </PanelViewContainer>
+      <PanelViewContainer video={video} setVideo={setVideo} />
     </SectionBody>
     </>
   );
